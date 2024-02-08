@@ -6,7 +6,13 @@ public class Main {
     public static void main(String[] args) {
         Sorter<Integer> sorter = new Sorter<Integer>();
         Integer[] intArray = new Integer[]{2,6,7,9,3,4,1};
-        sorter.gnomeSort(intArray, 7);
+
+        //Ejemplos de uso:
+        //sorter.gnomeSort(intArray, 7);
+        //sorter.MergeSortRecursive(intArray, new Comparable[intArray.length], 0, intArray.length - 1);
+        sorter.quicksort(intArray, 0,intArray.length-1);
         System.out.println(Arrays.toString(intArray));
+
+
     }
 }
