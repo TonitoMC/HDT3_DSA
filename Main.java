@@ -10,7 +10,8 @@ public class Main {
         //Ejemplos de uso:
         //sorter.gnomeSort(intArray, 7);
         //sorter.MergeSortRecursive(intArray, new Comparable[intArray.length], 0, intArray.length - 1);
-        sorter.quicksort(intArray, 0,intArray.length-1);
+        //sorter.quicksort(intArray, 0,intArray.length-1);
+        sorter.radixSort(intArray);
         System.out.println(Arrays.toString(intArray));
 
 

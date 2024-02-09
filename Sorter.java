@@ -91,5 +91,48 @@ public class Sorter <T extends Comparable<T>>{
         
     }
 
-
+    //////////////////////////////////////
+    //Algoritmo RadixSort
+    public void radixSort(Comparable[] arreglo) {
+        if (arreglo == null || arreglo.length == 0) {
+            return;
+        }
+        
+        // Encontrar el valor máximo en el arreglo
+        int max = Integer.MIN_VALUE;
+        for (Comparable elemento : arreglo) {
+            int valor = (int) elemento;
+            if (valor > max) {
+                max = valor;
+            }
+        }
+        
+        // Realizar el Radix Sort
+        for (int exp = 1; max / exp > 0; exp *= 10) {
+            // Inicializar el arreglo de contadores
+            int[] count = new int[10];
+            
+            // Contar la frecuencia de cada dígito en el arreglo
+            for (Comparable elemento : arreglo) {
+                int valor = (int) elemento;
+                count[(valor / exp) % 10]++;
+            }
+            
+            // Calcular la posición de inicio de cada dígito en el arreglo ordenado
+            for (int i = 1; i < 10; i++) {
+                count[i] += count[i - 1];
+            }
+            
+            // Construir el arreglo ordenado
+            Comparable[] output = new Comparable[arreglo.length];
+            for (int i = arreglo.length - 1; i >= 0; i--) {
+                int valor = (int) arreglo[i];
+                output[count[(valor / exp) % 10] - 1] = arreglo[i];
+                count[(valor / exp) % 10]--;
+            }
+            
+            // Copiar el arreglo ordenado de vuelta al arreglo original
+            System.arraycopy(output, 0, arreglo, 0, arreglo.length);
+        }
+    }
 }
