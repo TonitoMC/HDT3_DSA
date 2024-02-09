@@ -135,4 +135,21 @@ public class Sorter <T extends Comparable<T>>{
             System.arraycopy(output, 0, arreglo, 0, arreglo.length);
         }
     }
+
+    //////////////////////////////////////
+    //Algoritmo BubbleSort
+
+    public void bubbleSort(Comparable[] arreglo) {
+        int n = arreglo.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arreglo[j].compareTo(arreglo[j + 1]) > 0) {
+                    // Intercambiar arreglo[j] y arreglo[j + 1]
+                    Comparable temp = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = temp;
+                }
+            }
+        }
+    }
 }

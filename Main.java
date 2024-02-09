@@ -11,7 +11,8 @@ public class Main {
         //sorter.gnomeSort(intArray, 7);
         //sorter.MergeSortRecursive(intArray, new Comparable[intArray.length], 0, intArray.length - 1);
         //sorter.quicksort(intArray, 0,intArray.length-1);
-        sorter.radixSort(intArray);
+        //sorter.radixSort(intArray);
+        sorter.bubbleSort(intArray);
         System.out.println(Arrays.toString(intArray));
 
 
