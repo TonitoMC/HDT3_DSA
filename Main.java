@@ -1,20 +1,57 @@
-import java.util.Arrays;
+/**
+ * Este programa ordena e imprime arrays ordenados utilizando diferentes metodos de sorting
+ * @author Jose Merida - 201105
+ * @author Adrian Lopez - 21357
+ * @version 1.0
+ * @since 08-02-2024
+ */
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
         Sorter<Integer> sorter = new Sorter<Integer>();
-        Integer[] intArray = new Integer[]{2,6,7,9,3,4,1};
-
-        //Ejemplos de uso:
-        //sorter.gnomeSort(intArray, 7);
-        //sorter.MergeSortRecursive(intArray, new Comparable[intArray.length], 0, intArray.length - 1);
-        //sorter.quicksort(intArray, 0,intArray.length-1);
-        //sorter.radixSort(intArray);
-        sorter.bubbleSort(intArray);
-        System.out.println(Arrays.toString(intArray));
-
-
+        /**
+         * Loops que generan arrays de numeros aleatorios para ser ordenados por cada algoritmo de sort, desde longitud
+         * 10 hasta 3000
+         */
+        for (int i = 10; i <= 3000; i++) {
+            Integer[] currentArray = generateRandomArray(i);
+            sorter.gnomeSort(currentArray, i);
+            System.out.println("Gnome " + i + " elementos");
+        }
+        for (int i = 10; i <= 3000; i++){
+            Integer[] currentArray = generateRandomArray(i);
+            sorter.mergeSort(currentArray, i);
+            System.out.println("Merge " + i + " elementos");
+        }
+        for (int i = 10; i <= 3000; i++){
+            Integer[] currentArray = generateRandomArray(i);
+            sorter.quickSort(currentArray, i);
+            System.out.println("Quick " + i + " elementos");
+        }
+        for (int i = 10; i <= 3000; i++){
+            Integer[] currentArray = generateRandomArray(i);
+            sorter.radixSort(currentArray, i);
+            System.out.println("Radix: " + i + " elementos");
+        }
+        for (int i = 10; i <= 3000; i++){
+            Integer[] currentArray = generateRandomArray(i);
+            sorter.bubbleSort(currentArray, i);
+            System.out.println("Bubble " + i + " elementos");
+        }
+    }
+    /**
+     * Metodo para generar arrays de numeros aleatorios
+     * @param length la longitud del array
+     * @return el array
+     */
+    public static Integer[] generateRandomArray(int length) {
+        Integer[] randomArray = new Integer[length];
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            randomArray[i] = random.nextInt(2991) + 10;
+        }
+        return randomArray;
     }
 }
